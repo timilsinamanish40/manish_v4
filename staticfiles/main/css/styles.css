@@ -1,0 +1,525 @@
+/* General Theme Colors */
+:root {
+    --primary-color: #64ffda;
+    --secondary-color: #8892b0;
+    --bg-color: #0a192f;
+    --text-color: #ccd6f6;
+    --highlight-color: #233554;
+    --font-family: 'Fira Code', monospace;
+}
+html, body {
+    overflow-x: hidden; /* Prevent horizontal overflow on all screens */
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-family);
+    line-height: 1.6;
+}
+
+/* Header and Navigation */
+header {
+    width: 100%;
+    padding: 20px 50px;
+    background-color: var(--bg-color);
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    flex-wrap: wrap; /* Improved for responsiveness */
+}
+
+.logo {
+    margin-right: auto;
+}
+
+.logo img {
+    height: 30px;
+    width: auto;
+    max-height: 50px;
+    transition: transform 0.3s; /* Smooth hover transition */
+}
+.logo img:hover {
+    cursor: pointer;
+    transform: translate(-3px, -3px);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-links li a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-size: 0.8rem;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: var(--primary-color);
+}
+
+.nav-links li a::before {
+    content: attr(data-number);
+    color: var(--primary-color);
+    font-size: 0.8rem;
+    margin-right: 5px;
+}
+
+/* Button */
+.button {
+    color: var(--primary-color);
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 0.8rem;
+    transition: background 0.3s, color 0.3s;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.button:hover {
+    border-radius: 15px;
+    transition: 0.5s;
+    color: var(--bg-color);
+    transform: translate(-3px, -3px);
+}
+
+/* Social Links */
+.social-links {
+    position: fixed;
+    bottom: 0;
+    left: 50px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column; /* Better for smaller screens */
+    z-index: 1000;
+}
+
+.social-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.social-left li {
+    margin: 5px 0;
+    list-style: none;
+}
+
+.social-left li a {
+    color: var(--secondary-color);
+    font-size: 1.2rem;
+    display: inline-block;
+    padding: 10px;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.social-left li a:hover {
+    color: var(--primary-color);
+    transform: translate(2px, -2px);
+}
+
+.social-right {
+    position: fixed;
+    right: 50px;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    z-index: 1000;
+}
+
+.social-right p {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding-bottom: 5px;
+    color: var(--secondary-color);
+    font-size: 0.85rem;
+    transition: color 0.3s;
+}
+
+.social-right p a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    margin-bottom: 20px;
+}
+
+.social-right p a:hover {
+    color: var(--primary-color);
+    transform: translate(1px, -2px);
+}
+
+.social-left::after {
+    content: " ";
+    display: block;
+    width: 1px;
+    height: 120px;
+    background-color: var(--secondary-color);
+    margin: 0px auto;
+}
+
+.social-right p::after {
+    content: '';
+    width: 1px;
+    height: 150px;
+    background-color: var(--secondary-color);
+    margin: 0px auto;
+}
+
+/* Intro Section */
+.intro {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0px 20px;
+    margin-top: -70px;
+}
+
+.intro h2 {
+    font-size: 3rem;
+    font-weight: 600px;
+    color: var(--text-color);
+}
+
+.intro h3 {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+}
+
+.intro p {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 20px auto;
+    color: var(--secondary-color);
+}
+
+/* Sections */
+.section {
+    padding: 100px 50px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.section h1 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.section h3 {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin: 10px 0px;
+}
+
+.section h3:hover {
+    color: var(--primary-color);
+    margin-bottom: 0.2rem;
+    text-decoration: underline;
+    transition: color 1s, transform 1s;
+}
+
+.section p, .section ul {
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+    line-height: 2;
+    margin-bottom: 5px;
+}
+
+.section ul li {
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+#about li {
+    list-style: inside;
+    opacity: 0.6;
+}
+#about li:hover {
+    color: var(--text-color);
+    opacity: 1;
+    transform: translate(1px, -1px);
+    transition: color 0.3s, transform 0.3s;
+    cursor: pointer;
+}
+/* Calendar Section */
+
+.calendar p {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 15px;
+    color: #64ffda;
+}
+
+.calendar {
+    padding: 20px;
+    background-color: var(--highlight-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    max-width: 100%;  /* Ensure it doesn't overflow the screen */
+    width: 100%;      /* Ensures it spans the full width */
+    margin: auto;     /* Centers the calendar */
+    box-sizing: border-box; /* Ensures padding doesn't cause overflow */
+}
+
+/* Prevent Image Overflow in Calendar */
+.calendar img {
+    width: 100%;      /* Ensure images scale responsively */
+    height: auto;     /* Maintain aspect ratio */
+    display: block;   /* Ensures images behave like block-level elements */
+    margin: 10px 0;   /* Adds margin between images */
+}
+
+/* Fix for the first image (GitHub Contributions Chart) */
+.calendar img:first-of-type {
+    max-width: 100%;   /* Ensure the first image doesn't exceed the container */
+    width: 100%;       /* Ensure it scales properly */
+    height: auto;      /* Maintain aspect ratio */
+    object-fit: contain; /* Makes sure it scales to fit the container without distortion */
+}
+
+.holopin {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Toast */
+.toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border-radius: 5px;
+    opacity: 0;
+    transition: opacity 0.5s ease, top 0.5s ease;
+    z-index: 9999;
+}
+
+.toast.show {
+    opacity: 1;
+    top: 30px;
+}
+
+.toast.success {
+    background-color: #4CAF50;
+}
+
+.toast.error {
+    background-color: #f44336;
+}
+
+.toast.info {
+    background-color: #2196F3;
+}
+
+/* Contact Form */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form label {
+    color: var(--primary-color);
+    font-size: 0.9rem;
+}
+
+.contact-form input, .contact-form textarea {
+    padding: 10px;
+    font-size: 1rem;
+    background: var(--highlight-color);
+    border: none;
+    color: var(--text-color);
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    outline: none;
+}
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+
+.hamburger.active {
+    display: block;
+}
+
+.nav-links.active {
+    display: flex;
+}
+
+
+/* Media Queries for responsiveness */
+@media (max-width: 1200px) {
+    .header-content + nav-links {
+        /* flex-direction: column; */
+        align-items: flex-start;
+        margin-top: 10px;
+    }
+
+    .logo img {
+        max-height: 40px;
+    }
+   
+}
+
+/* General Styling */
+@media (max-width: 768px) {
+    .header-content {
+        display: flex;
+        justify-content: space-between;
+        
+    }
+
+    .nav-links {
+        flex-direction: column;
+        margin-top: 20px;
+        display: none; /* Hide by default */
+    }
+
+    .nav-links li a {
+        font-size: 1rem;
+        padding: 10px;
+    }
+    .hamburger.active {
+        display: block;
+    }
+
+    /* Hamburger Menu */
+    .hamburger {
+        display: block;
+        cursor: pointer;
+        font-size: 2rem;
+        color: var(--primary-color);
+    }
+
+    .hamburger.active + .nav-links {
+        display: flex;
+        align-items: flex-end;
+        margin-top: 10px;
+    }
+
+    .logo img {
+        max-height: 40px;
+    }
+
+    /* Intro Section */
+    .intro h2 {
+        font-size: 2.5rem;
+    }
+
+    .intro h3 {
+        font-size: 1.8rem;
+    }
+
+    .intro p {
+        font-size: 1rem;
+    }
+
+    .section {
+        padding: 50px 20px;
+    }
+
+    .calendar {
+        padding: 15px;
+        max-width: 100%;
+        margin: 0 10px; 
+    }
+
+    .calendar p {
+        font-size: 1.3rem;
+    }
+
+    .social-left, .social-right {
+        display: none;
+    }
+
+    .calendar img {
+        width: 100%;
+        max-width: 100%;
+    }
+  
+}
+
+
+
+@media (max-width: 480px) {
+    .intro h2 {
+        font-size: 2rem;
+    }
+
+    .intro h3 {
+        font-size: 1.5rem;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .social-left, .social-right {
+       display: none;
+    }
+    .calendar {
+        padding: 10px;
+        margin: 0 5px;     /* Reduced margin on very small screens */
+    }
+
+    .calendar p {
+        font-size: 1.1rem;  /* Slightly smaller font size */
+    }
+
+    .calendar img {
+        width: 100%;
+        max-width: 100%;   
+    }
+}
+
