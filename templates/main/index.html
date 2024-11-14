@@ -1,0 +1,133 @@
+
+{% extends "main/base.html" %}
+{% load static %}
+
+    {% block header %}
+    <header>
+        <div class="header-content">
+             <!-- Logo -->
+            <div class="logo">
+                <img src="{% static 'main/images/logo.svg' %}" alt="Logo" />
+            </div>
+             <!-- Hamburger Menu (Visible below 768px) -->
+            <div class="hamburger" onclick="toggleMenu()">&#9776;</div> <!-- Hamburger icon -->
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#about" data-number="01.">About</a></li>
+                    <li><a href="https://blogsmanish.hashnode.dev/" data-number="02." target="_blank ">Blogs</a></li>
+                    <li><a href="https://manishpoems.hashnode.dev/" data-number="03." target="_blank ">Poems</a></li>
+                    <li><a href="#contact" data-number="04.">Contact</a></li>
+                    <li> <a href="{% static 'main/cv.pdf' %}" target="_blank" class="button">Resume</a></li>
+                </ul>
+            </nav> 
+        </div>
+
+
+
+
+       
+    </header>
+    {% endblock header %}
+
+{% block content %}
+
+
+    <section class="intro" id="section">
+        <p>Hi, my name is</p>
+        <h2>Manish Timilsina.</h2>
+        <h3>I build things for the Web.</h3>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h1>About Me</h1>
+            <p>Hi there! I'm <span>Manish Timilsina</span>, currently pursuing <span>BSc.CSIT</span> at Mount Annapurna Campus.</p>
+            <h3>Hobbies</h3>
+            <ul>
+                <li>Imparting Knowledge & Learning from Experience</li>
+                <li>Reading</li>
+                <li>Astrology</li>
+                <li>Gaming</li>
+                <li>Hiking</li>
+                <li>Writing Poems</li>
+            </ul>
+        </div>
+        <div class="calendar">
+            <p>Days I Code</p>
+            <img src="https://ghchart.rshah.org/timilsinamanish40" alt="GitHub Contributions Chart" /><br>
+            <p>Holopin Badges</p>
+            <img class="holopin" src="https://holopin.me/manishtimilsina22" alt="An image of @manishtimilsina22's Holopin badges " />
+        </div>
+    </section>
+
+    <section id="education" class="section">
+        <div class="container">
+            <h1>My Education</h1>
+            <p >Here is a list of my educational background.</p>
+            <ul>
+                <li>
+                    <h3>BSc.CSIT</h3>
+                    <p>Mount Annapurna Campus, Pokhara-05-Parshyang | 2020 - Present</p>
+                </li>
+                <li>
+                    <h3>SLC</h3>
+                    <p>Prativa Secondary School, Pokhara-03-Nadipur | 2018 - 2020</p>
+                </li>
+                <li>
+                    <h3>SEE</h3>
+                    <p>Shree Deupur Namuna English Secondary Boarding School, Modi-02-Parbat | 2016 - 2018</p>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="work" class="section">
+        <div class="container">
+            <h1>My Work Experience</h1>
+            <ul>
+                <li>
+                    <h3>College Representative</h3>
+                    <p>CFC_Pokhara | 2022 - Present</p>
+                    <p>As a CR at CFC_Pokhara, since 2023, I’ve connected with my peers and contributed to their growth. This rewarding role has enhanced my leadership and communication skills through mentoring and collaboration on various projects and workshops. Participating in workshops and public speaking events has boosted my confidence and deepened my passion for fostering a supportive community.</p>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Display Toast Messages -->
+    {% if messages %}
+    <div id="toast-container">
+    {% for message in messages %}
+        <div class="toast {% if message.tags %}{{ message.tags }}{% endif %}">
+            {{ message }}
+        </div>
+    {% endfor %}
+    </div>
+    {% endif %}
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h1>Contact Me</h1>
+
+            <form action="{% url 'contact' %}" method="POST" class="contact-form">
+                {% csrf_token %}
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required placeholder="Your Name" />
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required placeholder="Your Email" />
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required placeholder="Your Message"></textarea>
+
+                <button type="submit" class="button">Send Message</button>
+            </form>
+
+        
+        </div>
+    </section>
+{% endblock content %}
+
+
+
+

@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+    <link rel="icon" href="{% static 'main/images/favicon.ico' %}" type="image/x-icon" />
+    <link rel="stylesheet" href="{% static 'main/css/styles.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.css" />
+</head>
+<body>
+    {% block header%}
+
+    {% endblock header%}
+
+    <main>
+        <aside class="social-links">
+            <div class="social-left">
+                <ul>
+                    <li><a href="https://github.com/timilsinamanish40" target="_blank"><i class="fab fa-github"></i></a></li>
+                    <li><a href="https://www.linkedin.com/in/manishtimilsina/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                    <li><a href="https://www.instagram.com/manish_timil_sina/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                </ul>
+            </div>
+            <div class="social-right">
+                <p class="email"><a href="mailto:manishtimilsina7@gmail.com">manishtimilsina7@gmail.com</a></p>
+            </div>
+        </aside>
+
+        {% block content %}
+        
+        {% endblock content %}
+
+    </main>
+    <script>
+        // Function to show toast notifications
+        window.addEventListener('DOMContentLoaded', (event) => {
+            const toasts = document.querySelectorAll('.toast');
+            toasts.forEach(toast => {
+                toast.classList.add('show');  // Show toast with animation
+                setTimeout(() => {
+                    toast.classList.remove('show');  // Hide toast after 5 seconds
+                }, 4000); // 5000ms (5 seconds)
+            });
+        });
+
+
+        function toggleMenu() {
+            document.querySelector('.hamburger').classList.toggle('active');
+            document.querySelector('.nav-links').classList.toggle('active');
+        }
+        
+        
+    </script>
+</body>
+</html>

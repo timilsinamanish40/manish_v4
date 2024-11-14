@@ -1,0 +1,14 @@
+# .gitignore
+
+# Ignore environment variables file
+.env
+
+# Ignore virtual environment directory
+.venv/
+
+# Ignore Python bytecode files
+*.pyc
+__pycache__/
+
+# Ignore Django migrations
+migrations/
